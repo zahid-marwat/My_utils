@@ -31,7 +31,7 @@ def find_district_directory():
     Returns:
         str: The name of the district directory.
     """
-    return [i for i in next(os.walk('Data'+os.sep+'MIX'))[1]][0]
+    return [i for i in next(os.walk(r'C:\Users\fbpza\Desktop\My_utils\Data\MIX'))[1]][0]
 
 def find_road_directories(district):
     """
