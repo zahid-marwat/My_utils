@@ -49,6 +49,21 @@ def find_road_directories(district):
 
 def extract_lat_long_from_srt(srt_file_path):
     with open(srt_file_path, 'r') as file:
+        lines = file.readlines()
+        
+    while lines and lines[-1].strip() == '':
+        lines.pop()
+
+    if not lines[-1].endswith('\n'):
+        lines[-1] += '\n'  # Ensure the last line ends with a newline
+    lines.append('\n')
+
+    with open(srt_file_path, 'w') as file:
+        file.writelines(lines)
+    
+    
+        
+    with open(srt_file_path, 'r') as file:
         srt_content = file.read()
 
     # Regular expression to match the latitude and longitude in the given format
